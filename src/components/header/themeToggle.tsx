@@ -1,12 +1,10 @@
-
 import { Switch } from 'components/ui/switch'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useCallback } from 'react'
 
 export default function ThemeToggle() {
-  const { theme, resolvedTheme, setTheme } = useTheme()
-  console.log(theme, resolvedTheme)
+  const { resolvedTheme, setTheme } = useTheme()
 
   const handleToggleTheme = useCallback(() => {
     setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
