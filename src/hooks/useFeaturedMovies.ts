@@ -6,8 +6,10 @@ const useFeaturedMovies = () => {
     queryKey: ['featuredMovies'],
     queryFn: async () => {
       const { data } = await client.get('/discover/movie')
-      return data.results
-    }
+      return data.results.slice(0, 10)
+    },
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 60 * 60 * 24 // 1 day
   })
 }
 
